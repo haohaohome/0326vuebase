@@ -12,6 +12,7 @@
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 import List from './components/List.vue';
+import PubSub from 'pubsub-js'
 export default {
     name: '',
     data() {
@@ -30,6 +31,7 @@ export default {
     },
     mounted(){
         this.$bus.$on('deltodo',this.deltodo)
+        PubSub.subscribe('heihei',this.updataOne)
     },
     methods:{
         addTodos(obj){
@@ -40,6 +42,9 @@ export default {
         },
         deletea (){
             this.todos=  this.todos.filter(item=>!item.isOver)
+        },
+        updataOne(msg,index){
+            this.todos[index].isOver=!this.todos[index].isOver
         }
     }
 }

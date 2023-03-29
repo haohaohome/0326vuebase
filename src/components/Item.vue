@@ -2,7 +2,7 @@
     <div>
         <li @mouseenter="isShow=true" @mouseleave="isShow=false" :class="{myClass:isShow}">
             <label>
-                <input type="checkbox"  :name='todo.content' v-model='isOverValue'/>
+                <input type="checkbox"  :checked="todo.isOver" :name='todo.content' @click='updayaT'/>
                 <span style="color: green;">{{ todo.content }}</span>
             </label>
             <button class="btn btn-danger"  v-show='isShow' @click='deleT'>删除</button>
@@ -11,20 +11,20 @@
 </template>
 
 <script>
-
+import PubSub from 'pubsub-js'
 
 export default {
     name: '',
     props: { 'todo': Object,index:Number},
-    computed: {
-        isOverValue: {
-            get() {  return  this.todo.isOver},
-            set(value) { 
-                this.todo.isOver = value
-                console.log(this.todo.isOver)
-            }
-        }
-    },
+    // computed: {
+    //     isOverValue: {
+    //         get() {  return  this.todo.isOver},
+    //         set(value) { 
+    //             this.todo.isOver = value
+    //             console.log(this.todo.isOver)
+    //         }
+    //     }
+    // },
     data(){
         return{
             isShow: false,
@@ -34,6 +34,9 @@ export default {
         deleT(){
             this.$bus.$emit('deltodo',this.index)
             
+        },
+        updayaT(){
+            PubSub.publish('heihei', this.index)
         }
     }
 
