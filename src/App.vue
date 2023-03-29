@@ -2,7 +2,7 @@
     <div class="todo-container">
         <div class="todo-wrap">
             <Header @addTodos='addTodos'></Header>
-            <List :todos="todos" :deltodo='deltodo'></List>
+            <List :todos="todos" ></List>
             <Footer :todos="todos" :deletea='deletea'></Footer>
         </div>
     </div>
@@ -27,6 +27,9 @@ export default {
         Header,
         List,
         Footer
+    },
+    mounted(){
+        this.$bus.$on('deltodo',this.deltodo)
     },
     methods:{
         addTodos(obj){

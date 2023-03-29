@@ -15,7 +15,7 @@
 
 export default {
     name: '',
-    props: { 'todo': Object,'deltodo':Function ,index:Number},
+    props: { 'todo': Object,index:Number},
     computed: {
         isOverValue: {
             get() {  return  this.todo.isOver},
@@ -32,7 +32,8 @@ export default {
     },
     methods:{
         deleT(){
-            this.deltodo(this.index)
+            this.$bus.$emit('deltodo',this.index)
+            
         }
     }
 
