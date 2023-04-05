@@ -23,43 +23,43 @@ import axios from "axios"
 
 export default {
   name: '',
-  data() {
-    return {
-      isFrist: true,
-      isLoading: false,
-      errMsg: '',
-      users: []
-    }
-  }, mounted() {
-    this.$bus.$on('searchajax', this.searchajax)
-  },
-  methods: {
-    searchajax(keyword) {
-      this.isFrist = false
-      this.isLoading = true
-      axios({
-        url: ' https://api.github.com/search/users',
-        method: 'get',
-        params: {
-          q: keyword,
+  // data() {
+  //   return {
+  //     isFrist: true,
+  //     isLoading: false,
+  //     errMsg: '',
+  //     users: []
+  //   }
+  // }, mounted() {
+  //   this.$bus.$on('searchajax', this.searchajax)
+  // },
+  // methods: {
+  //   searchajax(keyword) {
+  //     this.isFrist = false
+  //     this.isLoading = true
+  //     axios({
+  //       url: ' https://api.github.com/search/users',
+  //       method: 'get',
+  //       params: {
+  //         q: keyword,
 
-        }
-      }).then(response => {
-        this.users = response.data.items.map(item => ({
-          username: item.login,
-          useravatar: item.avatar_url,
-          userurl: item.url
+  //       }
+  //     }).then(response => {
+  //       this.users = response.data.items.map(item => ({
+  //         username: item.login,
+  //         useravatar: item.avatar_url,
+  //         userurl: item.url
 
-        }))
-        this.isLoading = false
-        console.log(this.users.useravatar)
-      }).catch(error => {
-        this.isLoading = false
-        this.errMsg = error
-        console.log(error)
-      })
-    }
-  }
+  //       }))
+  //       this.isLoading = false
+  //       console.log(this.users.useravatar)
+  //     }).catch(error => {
+  //       this.isLoading = false
+  //       this.errMsg = error
+  //       console.log(error)
+  //     })
+  //   }
+  // }
 }  
 </script>
 
