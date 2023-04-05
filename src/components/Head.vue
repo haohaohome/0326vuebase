@@ -22,7 +22,7 @@ export default {
     search() {
       let keyword = this.keyword;
       if (keyword.trim()) {
-        this.$bus.$emit('searchajax', keyword)
+        // this.$bus.$emit('searchajax', keyword)
       } else {
         alert('请输入关键词搜素')
       }
