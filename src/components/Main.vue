@@ -18,11 +18,16 @@
 </template>
 
 <script>
-import axios from "axios"
+
+import { mapState } from 'vuex'
 
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: '',
+  computed:{
+    ...mapState(['isFrist','isLoading','errMsg','users'])
+  }
   // data() {
   //   return {
   //     isFrist: true,
