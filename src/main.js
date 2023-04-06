@@ -7,6 +7,7 @@ new Vue({
   // beforeCreate() {
   //   Vue.prototype.$bus = this;
   // },
+
   store,
   el: "#app",
   render: (h) => h(App),
