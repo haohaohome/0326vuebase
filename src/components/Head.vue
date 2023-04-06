@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: '',
   data() {
     return {
@@ -23,6 +24,7 @@ export default {
       let keyword = this.keyword;
       if (keyword.trim()) {
         // this.$bus.$emit('searchajax', keyword)
+        this.$store.dispatch('searchajax',keyword)
       } else {
         alert('请输入关键词搜素')
       }
