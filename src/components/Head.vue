@@ -25,6 +25,7 @@ export default {
       if (keyword.trim()) {
         // this.$bus.$emit('searchajax', keyword)
         this.$store.dispatch('searchajax',keyword)
+
       } else {
         alert('请输入关键词搜素')
       }

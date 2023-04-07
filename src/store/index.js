@@ -1,7 +1,6 @@
 import axios from "axios";
 import Vue from "vue";
 import Vuex from "vuex";
-
 Vue.use(Vuex);
 
 const state = {
@@ -28,7 +27,7 @@ const actions = {
   async searchajax({ commit }, q) {
     try {
       commit("REQUESTING");
-      let response = await axios({
+      const response = await axios({
         url: "https://api.github.com/search/users",
         method: "GET",
         params: {
@@ -42,7 +41,6 @@ const actions = {
       }));
       commit("REQUESTSUCCESS", users);
     } catch (error) {
-      console.log(error.message);
       commit("REQUESTFAILED", error);
     }
   },
