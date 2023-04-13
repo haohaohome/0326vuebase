@@ -26,10 +26,6 @@
             </div>
         </div>
     </div>
-</template>
-
-<script>
-export default {};
-</script>
-
-<style  scoped></style>
+    <script>
+        export default {};
+    <style  scoped></style>

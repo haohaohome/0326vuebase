@@ -4,9 +4,10 @@
             <ul class="list-group">
                 <li class="list-group-item" v-for="(item, index) in todos" :key="item.id">
                     <!-- <a href="##">{{ item.content }}</a> -->
-                    <router-link to="home/messge/messagedetail">{{ item.content }}</router-link>
-                    <router-link
-                        :to="{ name: 'delmessage', params: { msgid: item.id }, query: { content: item.content } }"></router-link>
+                    <!-- <router-link to="home/messge/messagedetail">{{ item.content }}</router-link> -->
+                    <router-link :to="{ name: 'delmessage', params: { msgid: item.id }, query: { content: item.content } }">{{
+                        item.content }}</router-link>
+                    <!-- <router-link>{{ item.content }}</router-link> -->
                 </li>
 
             </ul>

@@ -21,12 +21,13 @@ export default new VueRouter({
               path: "delmessage/:msgid",
               component: DelMessage,
               name: "delmessage",
-              props(router) {
-                return {
-                  msgid: router.params.msgid,
-                  content: router.query.content,
-                };
-              },
+              //   ,
+              //   props(router) {
+              //     return {
+              //       msgid: router.params.msgid,
+              //       content: router.query.content,
+              //     };
+              //   },
             },
           ],
         },
